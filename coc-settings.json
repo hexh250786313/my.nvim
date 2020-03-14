@@ -2,5 +2,10 @@
   "emmet.includeLanguages": {
     "vue-html": "html",
     "javascript": "javascriptreact"
+  },
+  "eslint.options": {"configFile": ".eslintrc"},
+  "snippets.extends": {
+    "javascriptreact": ["javascript"],
+    "typescript": ["javascript"]
   }
 }

@@ -15,6 +15,9 @@ Plug 'pangloss/vim-javascript'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'honza/vim-snippets'
+Plug 'preservim/nerdcommenter'
+Plug 'lilydjwg/fcitx.vim'
 call plug#end()
 
 let g:mapleader = "\\"
@@ -51,25 +54,24 @@ nnoremap <silent> <leader>gp :G pull<CR>
 nnoremap <silent> <leader>gb :Gblame<CR>
 nnoremap <silent> <leader>gll :GV<CR>
 nnoremap <silent> <leader>gl; :GV!<CR>
-noremap zx zA
-noremap <Space>m zM
+nnoremap zx zA
+nnoremap <Space>m zM
 nnoremap <localleader>2 :CtrlSFOpen<CR>
 nnoremap <silent> <leader>gm :MerginalToggle<CR>
-noremap - $
-noremap <Space><Space>y "+yw
-noremap <Space><Space>p "+pw
+nnoremap - $
+nnoremap <Space><Space>y "+y
+nnoremap <Space><Space>p "+p
 nnoremap <leader>gss :Git stash save ""<Left>
 nnoremap <silent> <leader>gsl :Git stash list<CR>
 nnoremap <leader>gsa :Git stash apply stash@{}<Left>
 nnoremap <leader>gr :Git reset --hard 
-nnoremap <leader>t :hi<Space>Normal<Space>ctermfg=252<Space>ctermbg=none<CR>
-nnoremap <leader>r :hi<Space>Normal<Space>ctermfg=252<Space>ctermbg=234<CR>
 nnoremap <leader>ww :set wrap<CR>
 nnoremap <leader>wn :set nowrap<CR>
 nnoremap <leader>dg :diffget<Space>//
 nnoremap <leader>du :diffupdate<CR>
-noremap <Space><Space>; :vertical<Space>resize<space>+100<CR>:vertical<Space>resize<space>+100<CR>
-
+nnoremap <Space><Space>; :vertical<Space>resize<space>+100<CR>:vertical<Space>resize<space>+100<CR>
+nnoremap <Space>x :resize<space>+100<CR>
+nnoremap <Space>n :resize<space>-100<CR>
 
 set shiftwidth=2
 set softtabstop=2
@@ -88,22 +90,26 @@ set expandtab
 set termguicolors
 colorscheme Benokai
 
+set mouse=a
+
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 nmap <C-]> <Plug>(coc-definition)
 nmap <Space>] <Plug>(coc-references))
-nmap <Leader>p <Plug>(coc-format-selected)
+nmap <Leader>p :Prettier<CR>
+vmap <Leader>p <Plug>(coc-format-selected)
 
 let g:defx_icons_column_length = 2
 let g:defx_mark_column_length = 2
+let g:defx_mark_column_length = 2
 call defx#custom#option('_', {
-  \ 'winwidth': 30,
+  \ 'winwidth': 60,
   \ 'split': 'vertical',
   \ 'direction': 'topleft',
   \ 'show_ignored_files': 1,
   \ 'buffer_name': '',
   \ 'toggle': 1,
   \ 'resume': 1,
-  \ 'columns': 'mark:indent:git:icon:icons:filename:type',
+  \ 'columns': 'mark:git:icons:indent:icon:filename:type',
   \ })
 
 call defx#custom#column('icon', {
@@ -112,9 +118,9 @@ call defx#custom#column('icon', {
   \ 'root_icon': ' ',
   \ })
 
-"call defx#custom#column('filename', {
-"  \ 'min_width': 22,
-"  \ 'max_width': 22,
+" call defx#custom#column('filename', {
+"  \ 'min_width': 100,
+"  \ 'max_width': 100,
 "  \ })
 
 call defx#custom#column('mark', {
@@ -188,7 +194,9 @@ set foldmethod=syntax "syntax highlighting items specify folds
 let javaScript_fold=1
 set foldlevelstart=99 "start file with all folds opened
 
-" let g:vim_jsx_pretty_colorful_config=1 "default 0
-"
-" let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
+
+hi Directory guifg=orange
+let g:NERDSpaceDelims = 1
+
