@@ -38,7 +38,7 @@ nnoremap <localleader>v :vsplit<CR>
 
 nnoremap <Space>q :q<CR>
 nnoremap <Space>f /
-nnoremap <Space>e :Vista<CR>
+nnoremap <Space>e :Vista!!<CR>
 nnoremap <Space>j :
 nnoremap <C-j> <C-W>j
 nnoremap <C-k> <C-W>k
