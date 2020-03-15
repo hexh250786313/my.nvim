@@ -18,7 +18,6 @@ Plug 'honza/vim-snippets'
 Plug 'preservim/nerdcommenter'
 Plug 'lilydjwg/fcitx.vim'
 Plug 'rhysd/git-messenger.vim'
-Plug 'mhinz/vim-startify'
 call plug#end()
 
 let g:mapleader = "\\"
@@ -123,10 +122,10 @@ call defx#custom#column('icon', {
   \ 'root_icon': ' ',
   \ })
 
-" call defx#custom#column('filename', {
-"  \ 'min_width': 100,
-"  \ 'max_width': 100,
-"  \ })
+call defx#custom#column('filename', {
+  \ 'min_width': 49,
+  \ 'max_width': 49,
+  \ })
 
 call defx#custom#column('mark', {
   \ 'readonly_icon': '✗',
