@@ -18,6 +18,7 @@ Plug 'honza/vim-snippets'
 Plug 'preservim/nerdcommenter'
 Plug 'lilydjwg/fcitx.vim'
 Plug 'rhysd/git-messenger.vim'
+Plug 'liuchengxu/vista.vim'
 call plug#end()
 
 let g:mapleader = "\\"
@@ -30,7 +31,6 @@ autocmd! User vim-which-key call which_key#register('<Leader>', 'g:which_key_map
 nnoremap <silent> <leader> :WhichKey '\'<CR>
 nnoremap <silent> <localleader> :WhichKey ','<CR>
 
-command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, {'options': '--delimiter : --nth 4..'}, <bang>0)
 nnoremap <localleader><localleader> :noh<CR>
 nnoremap <localleader>1 :Ag<CR>
 nnoremap <localleader>3 :%s ///gc<Left><Left><Left><Left>
@@ -38,6 +38,7 @@ nnoremap <localleader>v :vsplit<CR>
 
 nnoremap <Space>q :q<CR>
 nnoremap <Space>f /
+nnoremap <Space>e :Vista<CR>
 nnoremap <Space>j :
 nnoremap <C-j> <C-W>j
 nnoremap <C-k> <C-W>k
@@ -113,7 +114,7 @@ call defx#custom#option('_', {
   \ 'buffer_name': '',
   \ 'toggle': 1,
   \ 'resume': 1,
-  \ 'columns': 'mark:git:icons:indent:icon:filename:type',
+  \ 'columns': 'mark:git:indent:icon:icons:filename:type',
   \ })
 
 call defx#custom#column('icon', {
@@ -211,3 +212,17 @@ let g:airline_theme='qwq'
 " let g:airline_theme='xtermlight'
 " let g:airline_theme='deus'
 
+" let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
+let g:vista_default_executive = 'coc'
+let g:vista#renderer#enable_icon = 1
+let g:vista#renderer#icons = {
+  \  "function": "\uf794",
+  \  "variable": "\uf71b",
+  \ }
+let g:vista_sidebar_width = 50
+let g:vista_fzf_preview = ['right:50%']
+
+command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, fzf#wrap('ag',
+\ {'options': "--preview 'coderay $(cut -d: -f1 <<< {}) | sed -n $(cut -d: -f2 <<< {}),\\$p | head -".&lines."' --delimiter : --nth 4.."}))
+
+" command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, {'options': '--delimiter : --nth 4..'}, <bang>0)
