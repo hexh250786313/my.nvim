@@ -32,7 +32,7 @@ nnoremap <silent> <leader> :WhichKey '\'<CR>
 nnoremap <silent> <localleader> :WhichKey ','<CR>
 
 nnoremap <localleader><localleader> :noh<CR>
-nnoremap <localleader>1 :Ag<CR>
+nnoremap <localleader>1 :Rg<CR>
 nnoremap <localleader>3 :%s ///gc<Left><Left><Left><Left>
 nnoremap <localleader>v :vsplit<CR>
 
@@ -50,7 +50,7 @@ nnoremap <Space><Space>h <C-W>H
 nnoremap <Space><Space>l <C-W>L
 nnoremap <silent> <Space>w :Defx <cr>
 nnoremap <Space>t :History<CR>
-nnoremap <silent> <Space>s :FZF <cr>
+nnoremap <silent> <Space>s :Files <cr>
 nnoremap <Space><Space><Space> :Defx -new -split=floating `expand('%:p:h')` -search=`expand('%:p')`<CR>
 nnoremap <silent> <leader>gg :G<CR>
 nnoremap <silent> <leader>gd :Gvdiff<CR>
@@ -222,7 +222,19 @@ let g:vista#renderer#icons = {
 let g:vista_sidebar_width = 50
 let g:vista_fzf_preview = ['right:50%']
 
-command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, fzf#wrap('ag',
-\ {'options': "--preview 'coderay $(cut -d: -f1 <<< {}) | sed -n $(cut -d: -f2 <<< {}),\\$p | head -".&lines."' --delimiter : --nth 4.."}))
+" command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, fzf#wrap('ag',
+" \ {'options': ["--preview 'coderay $(cut -d: -f1 <<< {}) | sed -n $(cut -d: -f2 <<< {}),\\$p | head -".&lines."' ", '--delimiter : --nth 4..']}))
+
+" command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, {'options': ['--layout=reverse', '--info=inline', '--preview', 'cat {}']}, <bang>0)
+
+command! -bang -nargs=? -complete=dir Files
+    \ call fzf#vim#files(<q-args>, {'options': ['--layout=reverse', '--info=inline', '--preview', 'cat {}']}, <bang>0)
 
 " command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, {'options': '--delimiter : --nth 4..'}, <bang>0)
+
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
+  \   fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}), <bang>0)
+
+" {'options': '--delimiter : --nth 4..'}
