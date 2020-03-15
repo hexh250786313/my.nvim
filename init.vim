@@ -10,7 +10,6 @@ Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'kristijanhusak/defx-icons'
 Plug 'kristijanhusak/defx-git'
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
-Plug 'dyng/ctrlsf.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'vim-airline/vim-airline'
@@ -18,18 +17,23 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'honza/vim-snippets'
 Plug 'preservim/nerdcommenter'
 Plug 'lilydjwg/fcitx.vim'
+Plug 'rhysd/git-messenger.vim'
+Plug 'mhinz/vim-startify'
 call plug#end()
 
 let g:mapleader = "\\"
 let g:maplocalleader = ","
+let g:git_messenger_no_default_mappings = v:true
+let g:git_messenger_always_into_popup = v:true
 
 autocmd! User vim-which-key call which_key#register('<Leader>', 'g:which_key_map')
 
 nnoremap <silent> <leader> :WhichKey '\'<CR>
 nnoremap <silent> <localleader> :WhichKey ','<CR>
 
+command! -bang -nargs=* Ag call fzf#vim#ag(<q-args>, {'options': '--delimiter : --nth 4..'}, <bang>0)
 nnoremap <localleader><localleader> :noh<CR>
-nnoremap <localleader>1 :CtrlSF<space>
+nnoremap <localleader>1 :Ag<CR>
 nnoremap <localleader>3 :%s ///gc<Left><Left><Left><Left>
 nnoremap <localleader>v :vsplit<CR>
 
@@ -56,11 +60,11 @@ nnoremap <silent> <leader>gll :GV<CR>
 nnoremap <silent> <leader>gl; :GV!<CR>
 nnoremap zx zA
 nnoremap <Space>m zM
-nnoremap <localleader>2 :CtrlSFOpen<CR>
+nnoremap <localleader>2 :cw<CR>
 nnoremap <silent> <leader>gm :MerginalToggle<CR>
 nnoremap - $
-nnoremap <Space><Space>y "+y
-nnoremap <Space><Space>p "+p
+noremap <C-c> "+y
+noremap <C-v> "+p
 nnoremap <leader>gss :Git stash save ""<Left>
 nnoremap <silent> <leader>gsl :Git stash list<CR>
 nnoremap <leader>gsa :Git stash apply stash@{}<Left>
@@ -72,6 +76,7 @@ nnoremap <leader>du :diffupdate<CR>
 nnoremap <Space><Space>; :vertical<Space>resize<space>+100<CR>:vertical<Space>resize<space>+100<CR>
 nnoremap <Space>x :resize<space>+100<CR>
 nnoremap <Space>n :resize<space>-100<CR>
+nmap <Leader>gn <Plug>(git-messenger)
 
 set shiftwidth=2
 set softtabstop=2
@@ -151,6 +156,7 @@ function! s:defx_mappings() abort
   nnoremap <silent><buffer><expr> mo      defx#do_action('execute_system')
   nnoremap <silent><buffer><expr> pr      defx#do_action('print')
   nnoremap <silent><buffer><expr> u       defx#do_action('cd', ['..'])
+  nnoremap <silent><buffer><expr> C       defx#do_action('cd', [defx#get_candidate().action__path])
   nnoremap <silent><buffer><expr> s       defx#do_action('open', ['vsplit'])
   nnoremap <silent><buffer><expr> <Space> defx#do_action('toggle_select') . 'j'
   nnoremap <silent><buffer><expr> *       defx#do_action('toggle_select_all')
@@ -199,4 +205,10 @@ let g:airline_powerline_fonts = 1
 
 hi Directory guifg=orange
 let g:NERDSpaceDelims = 1
+
+" let g:airline_theme='base16_bright'
+" let g:airline_theme='desertink'
+let g:airline_theme='qwq'
+" let g:airline_theme='xtermlight'
+" let g:airline_theme='deus'
 
