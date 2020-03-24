@@ -247,5 +247,5 @@ set hidden
 
 " hi Normal guibg=none
 
-nnoremap <silent> <leader>gps :te<CR>igit push<CR>exit<CR>
+nnoremap <silent> <leader>gps :te<CR>igit push<CR>
 nnoremap <silent> <leader>yps :te<CR>igps<CR>exit<CR>
