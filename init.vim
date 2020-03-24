@@ -19,6 +19,8 @@ Plug 'preservim/nerdcommenter'
 Plug 'lilydjwg/fcitx.vim'
 Plug 'rhysd/git-messenger.vim'
 Plug 'liuchengxu/vista.vim'
+Plug 'dhruvasagar/vim-table-mode'
+Plug 'wellle/visual-split.vim'
 call plug#end()
 
 let g:mapleader = "\\"
@@ -49,7 +51,8 @@ nnoremap <Space><Space>k <C-W>K
 nnoremap <Space><Space>h <C-W>H
 nnoremap <Space><Space>l <C-W>L
 nnoremap <silent> <Space>w :Defx <cr>
-nnoremap <Space>t :History<CR>
+nnoremap <Space>t :Buffers<CR>
+nnoremap <Space>h :History<CR>
 nnoremap <silent> <Space>s :Files <cr>
 nnoremap <Space><Space><Space> :Defx -new -split=floating `expand('%:p:h')` -search=`expand('%:p')`<CR>
 nnoremap <silent> <leader>gg :G<CR>
@@ -63,6 +66,7 @@ nnoremap <Space>m zM
 nnoremap <localleader>2 :cw<CR>
 nnoremap <silent> <leader>gm :MerginalToggle<CR>
 nnoremap - $
+vnoremap - $
 noremap <C-c> "+y
 noremap <C-v> "+p
 nnoremap <leader>gss :Git stash save ""<Left>
@@ -238,3 +242,10 @@ command! -bang -nargs=* Rg
   \   fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}), <bang>0)
 
 " {'options': '--delimiter : --nth 4..'}
+
+set hidden
+
+" hi Normal guibg=none
+
+nnoremap <silent> <leader>gps :te<CR>igit push<CR>exit<CR>
+nnoremap <silent> <leader>yps :te<CR>igps<CR>exit<CR>
