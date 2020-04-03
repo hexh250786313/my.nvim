@@ -21,6 +21,7 @@ Plug 'rhysd/git-messenger.vim'
 Plug 'liuchengxu/vista.vim'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'wellle/visual-split.vim'
+Plug 'easymotion/vim-easymotion'
 call plug#end()
 
 let g:mapleader = "\\"
@@ -57,7 +58,7 @@ nnoremap <silent> <Space>s :Files <cr>
 nnoremap <Space><Space><Space> :Defx -new -split=floating `expand('%:p:h')` -search=`expand('%:p')`<CR>
 nnoremap <silent> <leader>gg :G<CR>
 nnoremap <silent> <leader>gd :Gvdiff<CR>
-nnoremap <silent> <leader>gp :G pull<CR>
+" nnoremap <silent> <leader>gp :G pull<CR>
 nnoremap <silent> <leader>gb :Gblame<CR>
 nnoremap <silent> <leader>gll :GV<CR>
 nnoremap <silent> <leader>gl; :GV!<CR>
@@ -97,7 +98,8 @@ set expandtab
 " autocmd CursorHold * silent call CocActionAsync('highlight')
 
 set termguicolors
-colorscheme Benokai
+" colorscheme Benokai
+colorscheme gruvbox
 
 set mouse=a
 
@@ -249,3 +251,12 @@ set hidden
 
 nnoremap <silent> <leader>gps :te<CR>igit push<CR>
 nnoremap <silent> <leader>yps :te<CR>igps<CR>exit<CR>
+nnoremap <silent> <leader>gp :te<CR>igpl<CR>exit<CR>
+
+map f <Plug>(easymotion-lineforward)
+map F <Plug>(easymotion-linebackward)
+map <leader><leader>w <Plug>(easymotion-w)
+map <leader><leader>b <Plug>(easymotion-b)
+
+" hi CursorLine cterm=underline ctermbg=NONE ctermfg=NONE gui=underline
+set cursorline
