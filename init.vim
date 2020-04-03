@@ -22,6 +22,7 @@ Plug 'liuchengxu/vista.vim'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'wellle/visual-split.vim'
 Plug 'easymotion/vim-easymotion'
+Plug 'airblade/vim-gitgutter'
 call plug#end()
 
 let g:mapleader = "\\"
@@ -258,5 +259,7 @@ map F <Plug>(easymotion-linebackward)
 map <leader><leader>w <Plug>(easymotion-w)
 map <leader><leader>b <Plug>(easymotion-b)
 
-" hi CursorLine cterm=underline ctermbg=NONE ctermfg=NONE gui=underline
 set cursorline
+
+nnoremap <silent> <leader>hf :GitGutterFold<CR>
+nnoremap <silent> <leader>hl :GitGutterLineHighlightsToggle<CR>
