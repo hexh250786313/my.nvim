@@ -1,5 +1,6 @@
 call plug#begin('~/.vim/plugged')
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+let g:coc_global_extensions = ['coc-css', 'coc-emmet', 'coc-eslint', 'coc-highlight', 'coc-html', 'coc-json', 'coc-pairs', 'coc-prettier', 'coc-snippets', 'coc-tsserver', 'coc-yank']
 Plug 'flazz/vim-colorschemes'
 Plug 'junegunn/fzf', { 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
@@ -23,6 +24,9 @@ Plug 'dhruvasagar/vim-table-mode'
 Plug 'wellle/visual-split.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'airblade/vim-gitgutter'
+Plug 'airblade/vim-markdown'
+Plug 'plasticboy/vim-markdown'
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 call plug#end()
 
 let g:mapleader = "\\"
@@ -263,3 +267,11 @@ set cursorline
 
 nnoremap <silent> <leader>hf :GitGutterFold<CR>
 nnoremap <silent> <leader>hl :GitGutterLineHighlightsToggle<CR>
+
+let s:clip = '/mnt/c/Windows/System32/clip.exe' 
+if executable(s:clip)
+  augroup WSLYank
+    autocmd!
+    autocmd TextYankPost * call system('echo '.shellescape(join(v:event.regcontents, "\<CR>")).' | '.s:clip)
+  augroup END
+end
