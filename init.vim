@@ -17,7 +17,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'honza/vim-snippets'
 Plug 'preservim/nerdcommenter'
-Plug 'lilydjwg/fcitx.vim'
+" Plug 'lilydjwg/fcitx.vim'
 Plug 'rhysd/git-messenger.vim'
 Plug 'liuchengxu/vista.vim'
 Plug 'dhruvasagar/vim-table-mode'
@@ -59,7 +59,7 @@ nnoremap <Space><Space>l <C-W>L
 nnoremap <silent> <Space>w :Defx <cr>
 nnoremap <Space>t :Buffers<CR>
 nnoremap <Space>h :History<CR>
-nnoremap <silent> <Space>s :Files <cr>
+nnoremap <silent> <Space>s :GFiles <cr>
 nnoremap <Space><Space><Space> :Defx -new -split=floating `expand('%:p:h')` -search=`expand('%:p')`<CR>
 nnoremap <silent> <leader>gg :G<CR>
 nnoremap <silent> <leader>gd :Gvdiff<CR>
@@ -268,10 +268,3 @@ set cursorline
 nnoremap <silent> <leader>hf :GitGutterFold<CR>
 nnoremap <silent> <leader>hl :GitGutterLineHighlightsToggle<CR>
 
-let s:clip = '/mnt/c/Windows/System32/clip.exe' 
-if executable(s:clip)
-  augroup WSLYank
-    autocmd!
-    autocmd TextYankPost * call system('echo '.shellescape(join(v:event.regcontents, "\<CR>")).' | '.s:clip)
-  augroup END
-end
