@@ -74,6 +74,7 @@ nnoremap - $
 vnoremap - $
 noremap <C-c> "+y
 noremap <C-v> "+p
+noremap <C-x> "+d
 nnoremap <leader>gss :Git stash save ""<Left>
 nnoremap <silent> <leader>gsl :Git stash list<CR>
 nnoremap <leader>gsa :Git stash apply stash@{}<Left>
