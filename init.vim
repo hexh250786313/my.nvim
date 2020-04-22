@@ -59,7 +59,9 @@ nnoremap <silent> <Space>w :Defx <cr>
 nnoremap <Space>t :Buffers<CR>
 nnoremap <Space>h :History<CR>
 nnoremap <silent> <Space>s :GFiles <cr>
-nnoremap <Space><Space><Space> :Defx -new -split=floating `expand('%:p:h')` -search=`expand('%:p')`<CR>
+" nnoremap <Space><Space><Space> :Defx -resume `expand('%:p:h')` -search=`expand('%:p')`<CR>
+nnoremap <Space><Space><Space> :Defx -resume -search=`expand('%:p')`<CR>
+nnoremap <Space><Space>c :Defx -new -direction=botright -search=`expand('%:p')`<CR>
 nnoremap <silent> <leader>gg :G<CR>
 nnoremap <silent> <leader>gd :Gvdiff<CR>
 " nnoremap <silent> <leader>gp :G pull<CR>
@@ -122,7 +124,7 @@ call defx#custom#option('_', {
   \ 'split': 'vertical',
   \ 'direction': 'topleft',
   \ 'show_ignored_files': 1,
-  \ 'buffer_name': '',
+  \ 'buffer_name': '_',
   \ 'toggle': 1,
   \ 'resume': 1,
   \ 'columns': 'mark:git:indent:icon:icons:filename:type',
@@ -182,7 +184,7 @@ function! s:defx_toggle_tree() abort
   if defx#is_directory()
     return defx#do_action('open_or_close_tree')
   endif
-    return defx#do_action('multi', ['drop', 'quit'])
+    return defx#do_action('multi', ['drop'])
     " return defx#do_action('multi')
 endfunction
 
