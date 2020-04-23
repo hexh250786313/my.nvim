@@ -26,6 +26,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'airblade/vim-gitgutter'
 Plug 'plasticboy/vim-markdown'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
+Plug 'yuttie/comfortable-motion.vim'
 call plug#end()
 
 let g:mapleader = "\\"
