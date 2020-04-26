@@ -27,7 +27,10 @@ Plug 'airblade/vim-gitgutter'
 Plug 'plasticboy/vim-markdown'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 Plug 'yuttie/comfortable-motion.vim'
+Plug 'rhysd/conflict-marker.vim'
 call plug#end()
+
+set termguicolors
 
 let g:mapleader = "\\"
 let g:maplocalleader = ","
@@ -270,4 +273,16 @@ set cursorline
 
 nnoremap <silent> <leader>hf :GitGutterFold<CR>
 nnoremap <silent> <leader>hl :GitGutterLineHighlightsToggle<CR>
+
+" disable the default highlight group
+let g:conflict_marker_highlight_group = ''
+
+" Include text after begin and end markers
+let g:conflict_marker_begin = '^<<<<<<< .*$'
+let g:conflict_marker_end   = '^>>>>>>> .*$'
+
+highlight ConflictMarkerBegin guibg=#2f7366
+highlight ConflictMarkerOurs guibg=#2e5049
+highlight ConflictMarkerTheirs guibg=#344f69
+highlight ConflictMarkerEnd guibg=#2f628e
 
