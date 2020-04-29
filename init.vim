@@ -28,6 +28,8 @@ Plug 'plasticboy/vim-markdown'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 Plug 'yuttie/comfortable-motion.vim'
 Plug 'rhysd/conflict-marker.vim'
+Plug 'preservim/nerdtree'
+Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 set termguicolors
