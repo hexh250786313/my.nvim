@@ -7,9 +7,9 @@ Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'idanarye/vim-merginal'
 Plug 'junegunn/gv.vim'
-Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'kristijanhusak/defx-icons'
-Plug 'kristijanhusak/defx-git'
+" Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
+" Plug 'kristijanhusak/defx-icons'
+" Plug 'kristijanhusak/defx-git'
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 Plug 'pangloss/vim-javascript'
 Plug 'maxmellon/vim-jsx-pretty'
@@ -59,13 +59,13 @@ nnoremap <Space><Space>j <C-W>J
 nnoremap <Space><Space>k <C-W>K
 nnoremap <Space><Space>h <C-W>H
 nnoremap <Space><Space>l <C-W>L
-nnoremap <silent> <Space>w :Defx <cr>
+" nnoremap <silent> <Space>w :Defx <cr>
 nnoremap <Space>t :Buffers<CR>
 nnoremap <Space>h :History<CR>
 nnoremap <silent> <Space>s :GFiles <cr>
 " nnoremap <Space><Space><Space> :Defx -resume `expand('%:p:h')` -search=`expand('%:p')`<CR>
-nnoremap <Space><Space><Space> :Defx -resume -search=`expand('%:p')`<CR>
-nnoremap <Space><Space>c :Defx -new -direction=botright -search=`expand('%:p')`<CR>
+" nnoremap <Space><Space><Space> :Defx -no-toggle -resume -search=`expand('%:p')`<CR>
+" nnoremap <Space><Space>c :Defx -new -direction=botright -search=`expand('%:p')`<CR>
 nnoremap <silent> <leader>gg :G<CR>
 nnoremap <silent> <leader>gd :Gvdiff<CR>
 " nnoremap <silent> <leader>gp :G pull<CR>
@@ -120,77 +120,77 @@ nmap <Space>] <Plug>(coc-references))
 nmap <Leader>p :Prettier<CR>
 vmap <Leader>p <Plug>(coc-format-selected)
 
-let g:defx_icons_column_length = 2
-let g:defx_mark_column_length = 2
-let g:defx_mark_column_length = 2
-call defx#custom#option('_', {
-  \ 'winwidth': 60,
-  \ 'split': 'vertical',
-  \ 'direction': 'topleft',
-  \ 'show_ignored_files': 1,
-  \ 'buffer_name': '_',
-  \ 'toggle': 1,
-  \ 'resume': 1,
-  \ 'columns': 'mark:git:indent:icon:icons:filename:type',
-  \ })
+" let g:defx_icons_column_length = 2
+" let g:defx_mark_column_length = 2
+" let g:defx_mark_column_length = 2
+" call defx#custom#option('_', {
+  " \ 'winwidth': 60,
+  " \ 'split': 'vertical',
+  " \ 'direction': 'topleft',
+  " \ 'show_ignored_files': 1,
+  " \ 'buffer_name': '_',
+  " \ 'toggle': 1,
+  " \ 'resume': 1,
+  " \ 'columns': 'mark:git:indent:icon:icons:filename:type',
+  " \ })
 
-call defx#custom#column('icon', {
-  \ 'directory_icon': '▸',
-  \ 'opened_icon': '▾',
-  \ 'root_icon': ' ',
-  \ })
+" call defx#custom#column('icon', {
+  " \ 'directory_icon': '▸',
+  " \ 'opened_icon': '▾',
+  " \ 'root_icon': ' ',
+  " \ })
 
-call defx#custom#column('filename', {
-  \ 'min_width': 49,
-  \ 'max_width': 49,
-  \ })
+" call defx#custom#column('filename', {
+  " \ 'min_width': 49,
+  " \ 'max_width': 49,
+  " \ })
 
-call defx#custom#column('mark', {
-  \ 'readonly_icon': '✗',
-  \ 'selected_icon': '✓',
-  \ })
+" call defx#custom#column('mark', {
+  " \ 'readonly_icon': '✗',
+  " \ 'selected_icon': '✓',
+  " \ })
 
-call defx#custom#column('git', 'indicators', {
-  \ 'Modified'  : '✹',
-  \ 'Staged'    : '✚',
-  \ 'Untracked' : '✭',
-  \ 'Renamed'   : '➜',
-  \ 'Unmerged'  : '═',
-  \ 'Ignored'   : '☒',
-  \ 'Deleted'   : '✖',
-  \ 'Unknown'   : '?'
-  \ })
+" call defx#custom#column('git', 'indicators', {
+  " \ 'Modified'  : '✹',
+  " \ 'Staged'    : '✚',
+  " \ 'Untracked' : '✭',
+  " \ 'Renamed'   : '➜',
+  " \ 'Unmerged'  : '═',
+  " \ 'Ignored'   : '☒',
+  " \ 'Deleted'   : '✖',
+  " \ 'Unknown'   : '?'
+  " \ })
 
-autocmd FileType defx call s:defx_mappings()
-function! s:defx_mappings() abort
-  nnoremap <silent><buffer><expr> <CR>    <SID>defx_toggle_tree()
-  nnoremap <silent><buffer><expr> o       <SID>defx_toggle_tree()
-  nnoremap <silent><buffer><expr> mc      defx#do_action('copy')
-  nnoremap <silent><buffer><expr> mm      defx#do_action('rename')
-  nnoremap <silent><buffer><expr> mp      defx#do_action('paste')
-  nnoremap <silent><buffer><expr> ma      defx#do_action('new_file')
-  nnoremap <silent><buffer><expr> md      defx#do_action('remove')
-  nnoremap <silent><buffer><expr> mo      defx#do_action('execute_system')
-  nnoremap <silent><buffer><expr> pr      defx#do_action('print')
-  nnoremap <silent><buffer><expr> u       defx#do_action('cd', ['..'])
-  nnoremap <silent><buffer><expr> C       defx#do_action('cd', [defx#get_candidate().action__path])
-  nnoremap <silent><buffer><expr> s       defx#do_action('open', ['vsplit'])
-  nnoremap <silent><buffer><expr> <Space> defx#do_action('toggle_select') . 'j'
-  nnoremap <silent><buffer><expr> *       defx#do_action('toggle_select_all')
-  nnoremap <silent><buffer><expr> r       defx#do_action('redraw')
-  nnoremap <silent><buffer><expr> j       line('.') == line('$') ? 'gg' : 'j'
-  nnoremap <silent><buffer><expr> k       line('.') == 1 ? 'G' : 'k'
-  nnoremap <silent><buffer><expr> cd      defx#do_action('change_vim_cwd')
-endfunction
+" autocmd FileType defx call s:defx_mappings()
+" function! s:defx_mappings() abort
+  " nnoremap <silent><buffer><expr> <CR>    <SID>defx_toggle_tree()
+  " nnoremap <silent><buffer><expr> o       <SID>defx_toggle_tree()
+  " nnoremap <silent><buffer><expr> mc      defx#do_action('copy')
+  " nnoremap <silent><buffer><expr> mm      defx#do_action('rename')
+  " nnoremap <silent><buffer><expr> mp      defx#do_action('paste')
+  " nnoremap <silent><buffer><expr> ma      defx#do_action('new_file')
+  " nnoremap <silent><buffer><expr> md      defx#do_action('remove')
+  " nnoremap <silent><buffer><expr> mo      defx#do_action('execute_system')
+  " nnoremap <silent><buffer><expr> pr      defx#do_action('print')
+  " nnoremap <silent><buffer><expr> u       defx#do_action('cd', ['..'])
+  " nnoremap <silent><buffer><expr> C       defx#do_action('cd', [defx#get_candidate().action__path])
+  " nnoremap <silent><buffer><expr> s       defx#do_action('open', ['vsplit'])
+  " nnoremap <silent><buffer><expr> <Space> defx#do_action('toggle_select') . 'j'
+  " nnoremap <silent><buffer><expr> *       defx#do_action('toggle_select_all')
+  " nnoremap <silent><buffer><expr> r       defx#do_action('redraw')
+  " nnoremap <silent><buffer><expr> j       line('.') == line('$') ? 'gg' : 'j'
+  " nnoremap <silent><buffer><expr> k       line('.') == 1 ? 'G' : 'k'
+  " nnoremap <silent><buffer><expr> cd      defx#do_action('change_vim_cwd')
+" endfunction
 
-function! s:defx_toggle_tree() abort
-  " Open current file, or toggle directory expand/collapse
-  if defx#is_directory()
-    return defx#do_action('open_or_close_tree')
-  endif
-    return defx#do_action('multi', ['drop'])
-    " return defx#do_action('multi')
-endfunction
+" function! s:defx_toggle_tree() abort
+  " " Open current file, or toggle directory expand/collapse
+  " if defx#is_directory()
+    " return defx#do_action('open_or_close_tree')
+  " endif
+    " return defx#do_action('multi', ['drop'])
+    " " return defx#do_action('multi')
+" endfunction
 
 let g:ctrlsf_ackprg='ack'
 let g:ctrlsf_case_sensitive='no'
