@@ -30,6 +30,7 @@ Plug 'yuttie/comfortable-motion.vim'
 Plug 'rhysd/conflict-marker.vim'
 Plug 'preservim/nerdtree'
 Plug 'ryanoasis/vim-devicons'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 call plug#end()
 
 set termguicolors
