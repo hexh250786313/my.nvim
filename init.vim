@@ -61,13 +61,11 @@ nnoremap <Space><Space>j <C-W>J
 nnoremap <Space><Space>k <C-W>K
 nnoremap <Space><Space>h <C-W>H
 nnoremap <Space><Space>l <C-W>L
-" nnoremap <silent> <Space>w :Defx <cr>
+nnoremap <silent> <Space>w :NERDTreeToggle<CR>
 nnoremap <Space>t :Buffers<CR>
 nnoremap <Space>h :History<CR>
 nnoremap <silent> <Space>s :GFiles <cr>
-" nnoremap <Space><Space><Space> :Defx -resume `expand('%:p:h')` -search=`expand('%:p')`<CR>
-" nnoremap <Space><Space><Space> :Defx -no-toggle -resume -search=`expand('%:p')`<CR>
-" nnoremap <Space><Space>c :Defx -new -direction=botright -search=`expand('%:p')`<CR>
+nnoremap <Space><Space><Space> :NERDTreeFind<CR>
 nnoremap <silent> <leader>gg :G<CR>
 nnoremap <silent> <leader>gd :Gvdiff<CR>
 " nnoremap <silent> <leader>gp :G pull<CR>
@@ -122,6 +120,10 @@ nmap <Space>] <Plug>(coc-references))
 nmap <Leader>p :Prettier<CR>
 vmap <Leader>p <Plug>(coc-format-selected)
 
+let g:NERDTreeWinSize=60
+let NERDTreeShowHidden=1
+let NERDTreeShowBookmarks=1
+let NERDTreeMouseMode=3
 " let g:defx_icons_column_length = 2
 " let g:defx_mark_column_length = 2
 " let g:defx_mark_column_length = 2
