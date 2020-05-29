@@ -31,6 +31,7 @@ Plug 'rhysd/conflict-marker.vim'
 Plug 'preservim/nerdtree'
 Plug 'ryanoasis/vim-devicons'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'rbong/vim-flog'
 call plug#end()
 
 set termguicolors
