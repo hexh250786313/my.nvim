@@ -72,7 +72,7 @@ nnoremap <silent> <leader>gg :G<CR>
 nnoremap <silent> <leader>gd :Gvdiff<CR>
 " nnoremap <silent> <leader>gp :G pull<CR>
 nnoremap <silent> <leader>gb :Gblame<CR>
-nnoremap <silent> <leader>gll :GV<CR>
+nnoremap <silent> <leader>gll :Flog<CR>
 nnoremap <silent> <leader>gl; :GV!<CR>
 nnoremap zx zA
 nnoremap <Space>m zM
@@ -226,7 +226,7 @@ set foldlevelstart=99 "start file with all folds opened
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 
-hi Directory guifg=orange
+" hi Directory guifg=orange
 let g:NERDSpaceDelims = 1
 
 " let g:airline_theme='base16_bright'
@@ -293,3 +293,5 @@ highlight ConflictMarkerTheirs guibg=#344f69
 highlight ConflictMarkerEnd guibg=#2f628e
 
 let g:fugitive_pty = 0
+
+nnoremap <silent> <Space>g :execute 'set showtabline=' . (&showtabline ==# 0 ? 2 : 0)<CR>
