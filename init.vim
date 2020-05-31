@@ -31,6 +31,8 @@ Plug 'rhysd/conflict-marker.vim'
 Plug 'preservim/nerdtree'
 Plug 'ryanoasis/vim-devicons'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'rbong/vim-flog'
+Plug 'junkblocker/git-time-lapse'
 call plug#end()
 
 set termguicolors
@@ -71,7 +73,7 @@ nnoremap <silent> <leader>gg :G<CR>
 nnoremap <silent> <leader>gd :Gvdiff<CR>
 " nnoremap <silent> <leader>gp :G pull<CR>
 nnoremap <silent> <leader>gb :Gblame<CR>
-nnoremap <silent> <leader>gll :GV<CR>
+nnoremap <silent> <leader>gll :Flog<CR>
 nnoremap <silent> <leader>gl; :GV!<CR>
 nnoremap zx zA
 nnoremap <Space>m zM
@@ -225,7 +227,7 @@ set foldlevelstart=99 "start file with all folds opened
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 
-hi Directory guifg=orange
+" hi Directory guifg=orange
 let g:NERDSpaceDelims = 1
 
 " let g:airline_theme='base16_bright'
@@ -292,3 +294,6 @@ highlight ConflictMarkerTheirs guibg=#344f69
 highlight ConflictMarkerEnd guibg=#2f628e
 
 let g:fugitive_pty = 0
+
+nnoremap <silent> <F2> :AirlineToggle<CR>:hi Normal guibg=none<CR>:te<CR>
+nnoremap <silent> <F3> :AirlineToggle<CR>:hi Normal guibg=#282828<CR>
