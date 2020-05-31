@@ -32,6 +32,7 @@ Plug 'preservim/nerdtree'
 Plug 'ryanoasis/vim-devicons'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'rbong/vim-flog'
+Plug 'junkblocker/git-time-lapse'
 call plug#end()
 
 set termguicolors
@@ -294,4 +295,5 @@ highlight ConflictMarkerEnd guibg=#2f628e
 
 let g:fugitive_pty = 0
 
-nnoremap <silent> <Space>g :execute 'set showtabline=' . (&showtabline ==# 0 ? 2 : 0)<CR>
+nnoremap <silent> <F2> :AirlineToggle<CR>:hi Normal guibg=none<CR>:te<CR>
+nnoremap <silent> <F3> :AirlineToggle<CR>:hi Normal guibg=#282828<CR>
