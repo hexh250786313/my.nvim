@@ -11,8 +11,10 @@ Plug 'junegunn/gv.vim'
 " Plug 'kristijanhusak/defx-icons'
 " Plug 'kristijanhusak/defx-git'
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
-Plug 'pangloss/vim-javascript'
+" Plug 'pangloss/vim-javascript'
+" Plug 'mxw/vim-jsx'
 Plug 'maxmellon/vim-jsx-pretty'
+Plug 'yuezk/vim-js'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'honza/vim-snippets'
@@ -26,13 +28,14 @@ Plug 'easymotion/vim-easymotion'
 Plug 'airblade/vim-gitgutter'
 Plug 'plasticboy/vim-markdown'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
-Plug 'yuttie/comfortable-motion.vim'
+" Plug 'yuttie/comfortable-motion.vim'
 Plug 'rhysd/conflict-marker.vim'
 Plug 'preservim/nerdtree'
 Plug 'ryanoasis/vim-devicons'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'rbong/vim-flog'
 Plug 'junkblocker/git-time-lapse'
+Plug 'terryma/vim-multiple-cursors'
 call plug#end()
 
 set termguicolors
@@ -297,3 +300,5 @@ let g:fugitive_pty = 0
 
 nnoremap <silent> <F2> :AirlineToggle<CR>:hi Normal guibg=none<CR>:te<CR>
 nnoremap <silent> <F3> :AirlineToggle<CR>:hi Normal guibg=#282828<CR>
+
+" set relativenumber
