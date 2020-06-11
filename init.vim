@@ -32,10 +32,11 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 Plug 'rhysd/conflict-marker.vim'
 Plug 'preservim/nerdtree'
 Plug 'ryanoasis/vim-devicons'
-Plug 'Xuyuanp/nerdtree-git-plugin'
+" Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'rbong/vim-flog'
 Plug 'junkblocker/git-time-lapse'
 Plug 'terryma/vim-multiple-cursors'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 call plug#end()
 
 set termguicolors
@@ -122,7 +123,7 @@ set mouse=a
 
 command! -nargs=0 Prettier :CocCommand prettier.formatFile
 nmap <C-]> <Plug>(coc-definition)
-nmap <Space>] <Plug>(coc-references))
+nmap <Space>] <Plug>(coc-references)
 nmap <Leader>p :Prettier<CR>
 vmap <Leader>p <Plug>(coc-format-selected)
 
