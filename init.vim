@@ -37,6 +37,7 @@ Plug 'rbong/vim-flog'
 Plug 'junkblocker/git-time-lapse'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+Plug 'tomasiser/vim-code-dark'
 call plug#end()
 
 set termguicolors
@@ -117,7 +118,8 @@ set expandtab
 
 set termguicolors
 " colorscheme Benokai
-colorscheme gruvbox
+" colorscheme gruvbox
+colorscheme codedark
 
 set mouse=a
 
@@ -234,11 +236,8 @@ let g:airline_powerline_fonts = 1
 " hi Directory guifg=orange
 let g:NERDSpaceDelims = 1
 
-" let g:airline_theme='base16_bright'
-" let g:airline_theme='desertink'
-let g:airline_theme='qwq'
-" let g:airline_theme='xtermlight'
-" let g:airline_theme='deus'
+" let g:airline_theme='qwq'
+let g:airline_theme = 'codedark'
 
 " let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
 let g:vista_default_executive = 'coc'
@@ -303,3 +302,5 @@ nnoremap <silent> <F2> :AirlineToggle<CR>:hi Normal guibg=none<CR>:te<CR>
 nnoremap <silent> <F3> :AirlineToggle<CR>:hi Normal guibg=#282828<CR>
 
 " set relativenumber
+
+nnoremap <C-p> :!code %:p<CR>
