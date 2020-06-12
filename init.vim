@@ -129,7 +129,7 @@ nmap <Space>] <Plug>(coc-references)
 nmap <Leader>p :Prettier<CR>
 vmap <Leader>p <Plug>(coc-format-selected)
 
-let g:NERDTreeWinSize=60
+" let g:NERDTreeWinSize=60
 let NERDTreeShowHidden=1
 let NERDTreeShowBookmarks=1
 let NERDTreeMouseMode=3
