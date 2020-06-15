@@ -21,7 +21,7 @@ Plug 'honza/vim-snippets'
 Plug 'preservim/nerdcommenter'
 " Plug 'lilydjwg/fcitx.vim'
 Plug 'rhysd/git-messenger.vim'
-Plug 'liuchengxu/vista.vim'
+" Plug 'liuchengxu/vista.vim'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'wellle/visual-split.vim'
 Plug 'easymotion/vim-easymotion'
@@ -38,6 +38,7 @@ Plug 'junkblocker/git-time-lapse'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'tomasiser/vim-code-dark'
+" Plug 'jistr/vim-nerdtree-tabs'
 call plug#end()
 
 set termguicolors
@@ -131,7 +132,7 @@ vmap <Leader>p <Plug>(coc-format-selected)
 
 " let g:NERDTreeWinSize=60
 let NERDTreeShowHidden=1
-let NERDTreeShowBookmarks=1
+" let NERDTreeShowBookmarks=1
 let NERDTreeMouseMode=3
 " let g:defx_icons_column_length = 2
 " let g:defx_mark_column_length = 2
@@ -303,4 +304,22 @@ nnoremap <silent> <F3> :AirlineToggle<CR>:hi Normal guibg=#282828<CR>
 
 " set relativenumber
 
-nnoremap <C-p> :!code %:p<CR>
+nnoremap <C-p> :!code %:p<CR><CR>
+
+" Open NERDTree in the directory of the current file (or /home if no file is open)
+" nmap <silent> <Space><Space><Space> :call NERDTreeToggleInCurDir()<cr>
+" function! NERDTreeToggleInCurDir()
+  " " If NERDTree is open in the current buffer
+  " if (exists("t:NERDTreeBufName") && bufwinnr(t:NERDTreeBufName) != -1)
+    " exe ":NERDTreeClose"
+  " else
+    " exe ":NERDTreeFind"
+  " endif
+" endfunction
+
+" let g:nerdtree_tabs_autofind=1
+" let g:nerdtree_tabs_open_on_console_startup=1
+
+let g:airline#extensions#tabline#fnamemod = ':.'
+let g:airline#extensions#tabline#fnamecollapse = 0
+let g:airline#extensions#tabline#show_buffers = 0
