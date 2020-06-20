@@ -70,7 +70,7 @@ nnoremap <Space><Space>j <C-W>J
 nnoremap <Space><Space>k <C-W>K
 nnoremap <Space><Space>h <C-W>H
 nnoremap <Space><Space>l <C-W>L
-nnoremap <silent> <Space>w :NERDTreeToggle<CR>
+nnoremap <silent> <Space>w :NERDTreeToggle<CR><C-w>=
 nnoremap <Space>t :Buffers<CR>
 nnoremap <Space>h :History<CR>
 nnoremap <silent> <Space>s :GFiles <cr>
