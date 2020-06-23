@@ -74,7 +74,7 @@ nnoremap <silent> <Space>w :NERDTreeToggle<CR><C-w>=
 nnoremap <Space>t :Buffers<CR>
 nnoremap <Space>h :History<CR>
 nnoremap <silent> <Space>s :GFiles <cr>
-nnoremap <Space><Space><Space> :NERDTreeFind<CR>
+nnoremap <Space><Space><Space> :NERDTreeFind<CR><C-w>=
 nnoremap <silent> <leader>gg :G<CR>
 nnoremap <silent> <leader>gd :Gvdiff<CR>
 " nnoremap <silent> <leader>gp :G pull<CR>
