@@ -1,6 +1,6 @@
 call plug#begin('~/.vim/plugged')
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-let g:coc_global_extensions = ['coc-css', 'coc-emmet', 'coc-eslint', 'coc-highlight', 'coc-html', 'coc-json', 'coc-pairs', 'coc-prettier', 'coc-snippets', 'coc-tsserver', 'coc-yank']
+let g:coc_global_extensions = ['coc-css', 'coc-emmet', 'coc-eslint', 'coc-highlight', 'coc-html', 'coc-json', 'coc-pairs', 'coc-prettier', 'coc-snippets', 'coc-tsserver', 'coc-yank', 'coc-lists']
 Plug 'flazz/vim-colorschemes'
 Plug 'junegunn/fzf', { 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
@@ -324,3 +324,29 @@ let g:airline#extensions#tabline#fnamemod = ':.'
 let g:airline#extensions#tabline#fnamecollapse = 0
 let g:airline#extensions#tabline#show_buffers = 0
 let g:airline#extensions#tabline#show_splits = 0
+
+nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
+vmap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
+
+let $FZF_DEFAULT_OPTS='--layout=reverse'
+let g:fzf_layout = { 'window': 'call FloatingFZF()' }
+
+function! FloatingFZF()
+  let buf = nvim_create_buf(v:false, v:true)
+  call setbufvar(buf, '&signcolumn', 'no')
+
+  let height = &lines - 3
+  let width = float2nr(&columns - (&columns * 2 / 10))
+  let col = float2nr((&columns - width) / 2)
+
+  let opts = {
+        \ 'relative': 'editor',
+        \ 'row': 1,
+        \ 'col': col,
+        \ 'width': width,
+        \ 'height': height
+        \ }
+
+  call nvim_open_win(buf, v:true, opts)
+endfunction
+
