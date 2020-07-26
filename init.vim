@@ -28,7 +28,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'airblade/vim-gitgutter'
 Plug 'plasticboy/vim-markdown'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
-" Plug 'yuttie/comfortable-motion.vim'
+Plug 'yuttie/comfortable-motion.vim'
 Plug 'rhysd/conflict-marker.vim'
 Plug 'preservim/nerdtree'
 Plug 'ryanoasis/vim-devicons'
@@ -38,7 +38,9 @@ Plug 'junkblocker/git-time-lapse'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'tomasiser/vim-code-dark'
-" Plug 'jistr/vim-nerdtree-tabs'
+Plug 'tomasiser/vim-code-dark'
+Plug 'tpope/vim-surround'
+"Plug 'jistr/vim-nerdtree-tabs'
 call plug#end()
 
 set termguicolors
@@ -87,9 +89,6 @@ nnoremap <localleader>2 :cw<CR>
 nnoremap <silent> <leader>gm :MerginalToggle<CR>
 nnoremap - $
 vnoremap - $
-noremap <C-c> "+y
-noremap <C-v> "+p
-noremap <C-x> "+d
 nnoremap <leader>gss :Git stash save ""<Left>
 nnoremap <silent> <leader>gsl :Git stash list<CR>
 nnoremap <leader>gsa :Git stash apply stash@{}<Left>
@@ -227,10 +226,10 @@ set ignorecase
 
 syntax on
 
-set foldmethod=syntax "syntax highlighting items specify folds
+" set foldmethod=syntax "syntax highlighting items specify folds
 " set foldcolumn=1
-let javaScript_fold=1
-set foldlevelstart=99 "start file with all folds opened
+" let javaScript_fold=1
+" set foldlevelstart=99 "start file with all folds opened
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
@@ -350,4 +349,17 @@ function! FloatingFZF()
 
   call nvim_open_win(buf, v:true, opts)
 endfunction
+
+let g:comfortable_motion_no_default_key_mappings = 1
+let g:comfortable_motion_impulse_multiplier = 1  " Feel free to increase/decrease this value.
+nnoremap <silent> <C-d> :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * 2)<CR>
+nnoremap <silent> <C-u> :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * -2)<CR>
+nnoremap <silent> <C-f> :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * 4)<CR>
+nnoremap <silent> <C-b> :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * -4)<CR>
+
+noremap <C-c> "+y
+noremap <C-v> "+p
+noremap <C-x> "+d
+
+set diffopt+=context:99999
 
