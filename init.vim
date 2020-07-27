@@ -41,6 +41,8 @@ Plug 'tomasiser/vim-code-dark'
 Plug 'tomasiser/vim-code-dark'
 Plug 'tpope/vim-surround'
 "Plug 'jistr/vim-nerdtree-tabs'
+" Plug 'jistr/vim-nerdtree-tabs'
+Plug 'vuciv/vim-bujo'
 call plug#end()
 
 set termguicolors
@@ -325,8 +327,7 @@ let g:airline#extensions#tabline#fnamecollapse = 0
 let g:airline#extensions#tabline#show_buffers = 0
 let g:airline#extensions#tabline#show_splits = 0
 
-nnoremap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
-vmap <silent> <space>y  :<C-u>CocList -A --normal yank<cr>
+nnoremap <silent> <space>y :<C-u>CocList -A --normal yank<cr>
 
 let $FZF_DEFAULT_OPTS='--layout=reverse'
 let g:fzf_layout = { 'window': 'call FloatingFZF()' }
