@@ -70,10 +70,6 @@ nnoremap <C-j> <C-W>j
 nnoremap <C-k> <C-W>k
 nnoremap <C-h> <C-W>h
 nnoremap <C-l> <C-W>l
-nnoremap <Space><Space>j <C-W>J
-nnoremap <Space><Space>k <C-W>K
-nnoremap <Space><Space>h <C-W>H
-nnoremap <Space><Space>l <C-W>L
 nnoremap <silent> <Space>w :NERDTreeToggle<CR><C-w>=
 nnoremap <Space>t :Buffers<CR>
 nnoremap <Space>h :History<CR>
@@ -277,11 +273,6 @@ nnoremap <silent> <leader>gps :te<CR>igit push<CR>
 nnoremap <silent> <leader>yps :te<CR>igps<CR>exit<CR>
 nnoremap <silent> <leader>gp :te<CR>igpl<CR>exit<CR>
 
-map f <Plug>(easymotion-lineforward)
-map F <Plug>(easymotion-linebackward)
-map <leader><leader>w <Plug>(easymotion-w)
-map <leader><leader>b <Plug>(easymotion-b)
-
 set cursorline
 
 nnoremap <silent> <leader>hf :GitGutterFold<CR>
@@ -363,4 +354,18 @@ noremap <C-v> "+p
 noremap <C-x> "+d
 
 set diffopt+=context:99999
+
+nnoremap <Leader><Leader>j <C-W>J
+nnoremap <Leader><Leader>k <C-W>K
+nnoremap <Leader><Leader>h <C-W>H
+nnoremap <Leader><Leader>l <C-W>L
+
+map <Space><Space>w <Plug>(easymotion-w)
+map <Space><Space>b <Plug>(easymotion-b)
+map <Space><Space>j <Plug>(easymotion-j)
+map <Space><Space>k <Plug>(easymotion-k)
+" map <Space><Space>f <Plug>(easymotion-lineforward)
+" map <Space><Space>F <Plug>(easymotion-linebackward)
+map <Space><Space>h <Plug>(easymotion-linebackward)
+map <Space><Space>l <Plug>(easymotion-lineforward)
 
