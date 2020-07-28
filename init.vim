@@ -369,3 +369,4 @@ map F <Plug>(easymotion-linebackward)
 map <Space><Space>h <Plug>(easymotion-linebackward)
 map <Space><Space>l <Plug>(easymotion-lineforward)
 
+set scrolloff=4
