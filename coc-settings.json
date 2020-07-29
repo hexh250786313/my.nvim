@@ -1,4 +1,10 @@
 {
+  // "diagnostic.errorSign": "_✘",
+  // "diagnostic.warningSign": "_",
+  // "diagnostic.infoSign": "_",
+  "diagnostic.errorSign": "❌",
+  "diagnostic.warningSign": "⚡",
+  "diagnostic.infoSign": "💬",
   "emmet.includeLanguages": {
     "vue-html": "html",
     "javascript": "javascriptreact"
