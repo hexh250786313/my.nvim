@@ -43,6 +43,7 @@ Plug 'tpope/vim-surround'
 "Plug 'jistr/vim-nerdtree-tabs'
 " Plug 'jistr/vim-nerdtree-tabs'
 Plug 'vuciv/vim-bujo'
+Plug 'mhinz/vim-signify'
 call plug#end()
 
 set termguicolors
@@ -370,3 +371,6 @@ map <Space><Space>h <Plug>(easymotion-linebackward)
 map <Space><Space>l <Plug>(easymotion-lineforward)
 
 set scrolloff=4
+
+let g:gitgutter_signs = 0
+

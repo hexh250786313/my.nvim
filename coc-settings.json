@@ -3,6 +3,7 @@
     "vue-html": "html",
     "javascript": "javascriptreact"
   },
+  // "eslint.options": {"configFile": "/home/hexh/.config/nvim/.eslintrc"},
   "eslint.options": {"configFile": ".eslintrc"},
   "snippets.extends": {
     "javascriptreact": ["javascript"],
