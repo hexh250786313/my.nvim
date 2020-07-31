@@ -91,7 +91,7 @@ vnoremap - $
 nnoremap <leader>gss :Git stash save ""<Left>
 nnoremap <silent> <leader>gsl :Git stash list<CR>
 nnoremap <leader>gsa :Git stash apply stash@{}<Left>
-nnoremap <leader>gr :Git reset --hard 
+nnoremap <leader>gr :Git reset --hard
 nnoremap <leader>ww :set wrap<CR>
 nnoremap <leader>wn :set nowrap<CR>
 nnoremap <leader>dg :diffget<Space>//
