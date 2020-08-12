@@ -21,7 +21,7 @@ Plug 'honza/vim-snippets'
 Plug 'preservim/nerdcommenter'
 " Plug 'lilydjwg/fcitx.vim'
 Plug 'rhysd/git-messenger.vim'
-" Plug 'liuchengxu/vista.vim'
+Plug 'liuchengxu/vista.vim'
 Plug 'dhruvasagar/vim-table-mode'
 Plug 'wellle/visual-split.vim'
 Plug 'easymotion/vim-easymotion'
@@ -44,6 +44,7 @@ Plug 'tpope/vim-surround'
 " Plug 'jistr/vim-nerdtree-tabs'
 Plug 'vuciv/vim-bujo'
 Plug 'mhinz/vim-signify'
+Plug 'dhruvasagar/vim-zoom'
 call plug#end()
 
 set termguicolors
@@ -380,3 +381,8 @@ let g:signify_sign_add               = '➕'
 let g:signify_sign_change            = '❕'
 
 nnoremap <silent> <Space>o :CocList outline<CR>
+
+set statusline+=%{zoom#statusline()}
+let g:zoom#statustext = 'zoomed'
+
+nmap <Space>z <Plug>(zoom-toggle)
