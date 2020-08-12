@@ -380,3 +380,6 @@ let g:signify_sign_add               = '➕'
 let g:signify_sign_change            = '❕'
 
 nnoremap <silent> <Space>o :CocList outline<CR>
+
+nnoremap <C-Space> <Nop>
+inoremap <C-Space> <Nop>
