@@ -386,3 +386,4 @@ set statusline+=%{zoom#statusline()}
 let g:zoom#statustext = 'zoomed'
 
 nmap <Space>z <Plug>(zoom-toggle)
+
