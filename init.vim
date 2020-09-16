@@ -386,3 +386,9 @@ set statusline+=%{zoom#statusline()}
 let g:zoom#statustext = 'zoomed'
 
 nmap <Space>z <Plug>(zoom-toggle)
+
+if $TMUX != ''
+  set ttimeoutlen=20
+elseif &ttimeoutlen > 60 || &ttimeoutlen <= 0
+  set ttimeoutlen=60
+endif
