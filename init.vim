@@ -393,3 +393,7 @@ if $TMUX != ''
 elseif &ttimeoutlen > 60 || &ttimeoutlen <= 0
   set ttimeoutlen=60
 endif
+
+nmap [c <Plug>(GitGutterPrevHunk)
+nmap ]c <Plug>(GitGutterNextHunk)
+
