@@ -397,4 +397,4 @@ endif
 nmap [c <Plug>(GitGutterPrevHunk)
 nmap ]c <Plug>(GitGutterNextHunk)
 
-nmap <C-s> :w
+nmap <C-s> :w<CR>
