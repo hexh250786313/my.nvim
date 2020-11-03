@@ -118,8 +118,8 @@ set expandtab
 set termguicolors
 " colorscheme Benokai
 " colorscheme gruvbox
-" colorscheme codedark
-colorscheme vim-material
+colorscheme codedark
+" colorscheme vim-material
 
 set mouse=a
 
