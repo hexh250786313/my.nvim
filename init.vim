@@ -1,4 +1,10 @@
+call plug#begin('~/.vim/plugged')
+Plug 'tpope/vim-fugitive'
+Plug 'tomasiser/vim-code-dark'
+call plug#end()
+
 set termguicolors
+colorscheme codedark
 
 nnoremap <C-j> <C-W>j
 nnoremap <C-k> <C-W>k
