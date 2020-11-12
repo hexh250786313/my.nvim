@@ -48,3 +48,4 @@ elseif &ttimeoutlen > 60 || &ttimeoutlen <= 0
   set ttimeoutlen=60
 endif
 
+let g:fugitive_pty = 0
